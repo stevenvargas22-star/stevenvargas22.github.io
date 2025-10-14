@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoRutas VR - Turismo Sostenible, Naturaleza y Realidad Virtual</title>
+    <style>
+        :root {
+            --primary-color: #2c5530;
+            --secondary-color: #8f7547;
+            --accent-color: #73a580;
+            --light-color: #f5f5f5;
+            --dark-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(Imagenes/logo\ 2.jpeg);
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+        }
+        
+        /* About */
+        .about {
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Tours */
+        .tours {
+            background-color: var(--light-color);
+        }
+        
+        .tour-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .tour-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .tour-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .tour-image {
+            height: 200px;
+            background-color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .tour-content {
+            padding: 20px;
+        }
+        
+        .tour-title {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .tour-features {
+            list-style-type: none;
+        }
+        
+        .tour-features li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .tour-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        /* VR Experience */
+        .vr-experience {
+            background-color: white;
+        }
+        
+        .vr-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .vr-text {
+            flex: 1;
+        }
+        
+        .vr-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 30px 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .vr-image img {
+            width: 50%;
+            height: auto;
+            display: block;
+            
+        }
+        
+        /* Contact */
+        .contact {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .contact-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-info h3, .contact-form h3 {
+            margin-bottom: 20px;
+        }
+        
+        .contact-details {
+            list-style-type: none;
+        }
+        
+        .contact-details li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-details li i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-content, .vr-content {
+                flex-direction: column;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            header {
+                padding: 60px 0;
+            }
+            
+            .logo {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">EcoRutas VR</div>
+            <p class="tagline">Naturaleza, Cultura y Realidad Virtual</p>
+            <a href="#tours" class="btn">Descubre Nuestras Rutas</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Sobre Nosotros</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>EcoRutas VR es una experiencia única que combina el turismo sostenible con tecnología de realidad virtual para ofrecerte una inmersión completa en los paisajes más espectaculares del Paisaje Cultural Cafetero.</p>
+                    <p>Nuestro enfoque innovador te permite explorar destinos naturales y culturales de una manera completamente nueva, complementando las experiencias presenciales con recorridos virtuales que amplían tus sentidos y conocimientos.</p>
+                    <p>Ubicados en el corazón del Eje Cafetero, conectamos a nuestros visitantes con la naturaleza, la cultura local y la tecnología para crear recuerdos inolvidables.</p>
+                </div>
+                <div class="about-image">
+                        <img src="Imagenes/cafe agua y luz.jpeg" alt="foto descriptiva">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tours Section -->
+    <section class="tours" id="tours">
+        <div class="container">
+            <h2 class="section-title">Nuestras Rutas</h2>
+            <div class="tour-cards">
+                <!-- Tour 1 -->
+                <div class="tour-card">
+                    <div class="tour-image" style="background-color: #73a580;">
+                        RUTA CAFÉ, AGUA Y LUZ
+                    </div>
+                    <div class="tour-content">
+                        <h3 class="tour-title">Ruta Café, Agua y Luz</h3>
+                        <p>Destino principal: Paisaje cultural cafetero (Alcalá - Quimbaya)</p>
+                        <ul class="tour-features">
+                            <li>Senderismo en cafetales y degustación de café artesanal</li>
+                            <li>Paseo por el río La Vieja</li>
+                            <li>Caminata en la Reserva Natural La Montaña del Ocaso</li>
+                            <li>Avistamiento de aves y talleres de fotografía de naturaleza</li>
+                            <li>Experiencia cultural: Fiesta de Fondes, talleres artesanales</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Tour 2 -->
+                <div class="tour-card">
+                    <div class="tour-image" style="background-color: #8f7547;">
+                        RUTA NATURALEZA Y AVENTURA
+                    </div>
+                    <div class="tour-content">
+                        <h3 class="tour-title">Ruta Naturaleza y Aventura</h3>
+                        <p>Explora los ecosistemas más diversos de la región cafetera</p>
+                        <ul class="tour-features">
+                            <li>Recorridos por bosques nativos y reservas naturales</li>
+                            <li>Avistamiento de fauna silvestre endémica</li>
+                            <li>Actividades de ecoturismo y conservación</li>
+                            <li>Talleres de sostenibilidad ambiental</li>
+                            <li>Experiencias de realidad virtual en entornos naturales</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Tour 3 -->
+                <div class="tour-card">
+                    <div class="tour-image" style="background-color: #2c5530;">
+                        RUTA CULTURA Y TRADICIÓN
+                    </div>
+                    <div class="tour-content">
+                        <h3 class="tour-title">Ruta Cultura y Tradición</h3>
+                        <p>Sumérgete en las tradiciones del Paisaje Cultural Cafetero</p>
+                        <ul class="tour-features">
+                            <li>Visitas a fincas cafeteras tradicionales</li>
+                            <li>Talleres de artesanía local</li>
+                            <li>Gastronomía típica de la región</li>
+                            <li>Experiencias culturales y festivales</li>
+                            <li>Recorridos históricos con realidad virtual</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VR Experience Section -->
+    <section class="vr-experience">
+        <div class="container">
+            <h2 class="section-title">Realidad Virtual + Naturaleza + Cultura</h2>
+            <div class="vr-content">
+                <div class="vr-text">
+                    <p>Nuestra tecnología de realidad virtual te permite vivir experiencias únicas que complementan tus recorridos presenciales:</p>
+                    <ul>
+                        <li><strong>Inmersión total:</strong> Vive los paisajes desde perspectivas imposibles en la realidad física</li>
+                        <li><strong>Educación ambiental:</strong> Aprende sobre los ecosistemas a través de experiencias interactivas</li>
+                        <li><strong>Preservación cultural:</strong> Conoce tradiciones y oficios que han definido nuestra región</li>
+                        <li><strong>Accesibilidad:</strong> Experimenta lugares de difícil acceso o condiciones climáticas específicas</li>
+                    </ul>
+                    <p>Combinamos lo mejor de ambos mundos: la autenticidad del contacto directo con la naturaleza y la cultura, amplificada por la tecnología de vanguardia.</p>
+                </div>
+                <div class="vr-image">
+                                    <img src="Imagenes/logo.jpeg" alt="logo empresa">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contáctanos</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <ul class="contact-details">
+                        <li><i class="fas fa-phone"></i> 314 427 4757</li>
+                        <li><i class="fas fa-phone"></i> 312 211 5253</li>
+                        <li><i class="fas fa-envelope"></i> cauviajesvr@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Quimbaya centro - Alcalá centro</li>
+                        <li><i class="fas fa-globe"></i> www.calviajesvr.com</li>
+                        <li><i class="fas fa-user"></i> María Camila Romero Salsado</li>
+                        <li><i class="fas fa-user"></i> Maruela Ospina Vela</li>
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    <h3>Envíanos un Mensaje</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>EcoRutas VR - Turismo sostenible, naturaleza y realidad virtual</p>
+            <p>&copy; 2025 EcoRutas VR. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
